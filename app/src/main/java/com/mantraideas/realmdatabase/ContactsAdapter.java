@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.mantraideas.realmdatabase.controller.RealmContactsAdapter;
 import com.mantraideas.realmdatabase.controller.RealmController;
 import com.mantraideas.realmdatabase.controller.RealmRecyclerViewAdapter;
 
@@ -54,11 +53,14 @@ public class ContactsAdapter extends RealmRecyclerViewAdapter<Contacts> {
         holder.textemail.setText(contact.getEmail());
         // load the background image
         if (contact.getImageUrl() != null) {
-            Glide.with(context)
-                    .load(contact.getImageUrl().replace("https", "http"))
-                    .asBitmap()
-                    .fitCenter()
+            Glide
+                    .with(context)
+                    .load(contact.getImageUrl())
+                    .centerCrop()
+                    .placeholder(R.mipmap.ic_launcher)
+                    .crossFade()
                     .into(holder.imageBackground);
+
         }
 
         //remove single match from realm

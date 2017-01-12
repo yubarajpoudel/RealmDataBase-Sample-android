@@ -1,17 +1,10 @@
 package com.mantraideas.realmdatabase;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mantraideas.realmdatabase.controller.RealmContactsAdapter;
@@ -27,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private ContactsAdapter adapter;
     private Realm realm;
     private LayoutInflater inflater;
-    private FloatingActionButton fab;
+//    private FloatingActionButton fab;
     private RecyclerView recycler;
 
     @Override
@@ -35,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab = (FloatingActionButton) findViewById(R.id.fab);
         recycler = (RecyclerView) findViewById(R.id.recycler);
 
         //get realm instance
         this.realm = RealmController.with(this).getRealm();
 
         //set toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         setupRecycler();
 
@@ -108,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         contactsArrayList.add(contact1);
 
         Contacts contact2 = new Contacts();
-        contact2.setId(2 + System.currentTimeMillis());
+        contact2.setId(3 + System.currentTimeMillis());
         contact2.setName("Hem Shrestha");
         contact2.setDesignation("Chief Technical Officer");
         contact2.setEmail("hereshem@gmail.com");
@@ -116,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         contactsArrayList.add(contact2);
 
         Contacts contact3 = new Contacts();
-        contact3.setId(2 + System.currentTimeMillis());
+        contact3.setId(4 + System.currentTimeMillis());
         contact3.setName("Yubaraj Poudel");
         contact3.setDesignation("Chief Operating Officer");
         contact3.setEmail("yubarajpoudel708@gmail.com");
