@@ -3,6 +3,7 @@ package com.mantraideas.realmdatabase;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.mantraideas.realmdatabase.controller.RealmController;
 import com.mantraideas.realmdatabase.controller.RealmRecyclerViewAdapter;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -53,13 +55,20 @@ public class ContactsAdapter extends RealmRecyclerViewAdapter<Contacts> {
         holder.textemail.setText(contact.getEmail());
         // load the background image
         if (contact.getImageUrl() != null) {
-            Glide
-                    .with(context)
+            Log.d("ContactsAdapter", "imageUrl = " + contact.getImageUrl());
+            Picasso.with(context)
                     .load(contact.getImageUrl())
-                    .centerCrop()
-                    .placeholder(R.mipmap.ic_launcher)
-                    .crossFade()
-                    .into(holder.imageBackground);
+                    .into(holder.imageBackground, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            Log.d("ContactsAdapter", "success");
+                        }
+
+                        @Override
+                        public void onError() {
+                            Log.d("ContactsAdapter", "failed");
+                        }
+                    });
 
         }
 

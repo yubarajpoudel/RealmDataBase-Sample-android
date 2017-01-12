@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         contact2.setName("Hem Shrestha");
         contact2.setDesignation("Chief Technical Officer");
         contact2.setEmail("hereshem@gmail.com");
-        contact2.setImageUrl("http://www.mantraideas.com/image.php?src=http://www.mantraideas.com/explorer/data/files/staffs/56659474b7da8.jpg&width=280&h=200");
+        contact2.setImageUrl("http://dev.travelnepal.com.np/uploads/2016-12-20-06-08-15_5858cacf76747atm.png");
         contactsArrayList.add(contact2);
 
         Contacts contact3 = new Contacts();
